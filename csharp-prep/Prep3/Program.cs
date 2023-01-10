@@ -8,7 +8,7 @@ class Program
         while (play.ToLower() == "yes")
         {
             Random randomGenerator = new Random();
-            int magicNumber = randomGenerator.Next(1,100);          
+            int magicNumber = randomGenerator.Next(1,101);          
             int guessNumber = 0;
             int numOfGuesses = 0;
             while (guessNumber != magicNumber)

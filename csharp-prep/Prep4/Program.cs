@@ -18,7 +18,6 @@ class Program
         }
         }
         int sum = 0;
-        int count = numbers.Count;
         int largestNumber = 0;
         int smallestPositive = 100000000;
         foreach(int numberInList in numbers)
@@ -37,11 +36,11 @@ class Program
             }
         }
         numbers.Sort();
-        float average = sum / count;
+        float average = ((float)sum) / numbers.Count;
         Console.WriteLine($"The sum is: {sum} ");
         Console.WriteLine($"The average is: {average} ");
         Console.WriteLine($"The largest number is: {largestNumber} ");
-        Console.WriteLine($"The smallest positive number is; {smallestPositive}");
+        Console.WriteLine($"The smallest positive number is: {smallestPositive}");
         Console.WriteLine($"The sorted list is: ");
         foreach (int num in numbers)
         {

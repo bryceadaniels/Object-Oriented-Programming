@@ -7,18 +7,9 @@ class Program
         string play = "yes";
         while (play.ToLower() == "yes")
         {
-            Console.Write("What is the magic number? ");
-            string magicNumberString = Console.ReadLine();
-            int magicNumber = int.Parse(magicNumberString);
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1,100);          
             int guessNumber = 0;
-            if (magicNumber >= 0)
-            {
-                guessNumber = -1;
-            }
-            else
-            {
-                guessNumber = 1;
-            }
             int numOfGuesses = 0;
             while (guessNumber != magicNumber)
             {

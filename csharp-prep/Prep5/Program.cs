@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static void DisplayWelcome ()
+    static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
     }
@@ -38,6 +38,5 @@ class Program
         int number = PromptUserNumber();
         int square = SquareNumber(number);
         DisplayResult(name, square);
-
     }
 }

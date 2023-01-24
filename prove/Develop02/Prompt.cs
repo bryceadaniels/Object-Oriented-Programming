@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-public class Prompt{
+public class PromptGenerator{
 
-    public Prompt(){}
+    public PromptGenerator(){}
     public List<string> _prompts = new List<string>();
 
     public void CompilePrompts(){

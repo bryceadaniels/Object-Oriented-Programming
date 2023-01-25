@@ -1,4 +1,5 @@
-public class Entry{
+public class Entry
+{
 
     public Entry(){}
     public string _date = "";
@@ -7,7 +8,8 @@ public class Entry{
     public string _response = "";
     public string _location = "";
 
-    public void GetResponse(){
+    public void GetResponse()
+    {
         DateTime theCurrentTime = DateTime.Now;
         _date = theCurrentTime.ToShortDateString();
         System.Console.WriteLine("Welcome to creating an entry!");
@@ -18,7 +20,8 @@ public class Entry{
         System.Console.WriteLine(_prompt);
         _response = Console.ReadLine();
     }
-    public void Display(){
+    public void Display()
+    {
         System.Console.Write($"Entry on {_date} at {_location}: ");
         System.Console.WriteLine(_prompt);
         System.Console.WriteLine(_response);

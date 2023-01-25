@@ -21,7 +21,13 @@ public class Journal{
         string _fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(_fileName);
         foreach (string line in lines){
-            
+            Entry entry = new Entry();
+            string[] parts = line.Split("|");
+            entry._date = parts[0];
+            entry._location = parts[1];
+            entry._prompt = parts[2];
+            entry._response = parts[3];
+            _entries.Add(entry);
         }
         
     }
@@ -30,7 +36,7 @@ public class Journal{
     string _fileName = Console.ReadLine();
     using (StreamWriter outputFile = new StreamWriter(_fileName)){
         foreach (Entry entry in _entries){
-            outputFile.WriteLine(entry);
+            outputFile.WriteLine($"{entry._date}|{entry._location}|{entry._prompt}|{entry._response}");
         }
     }   
 

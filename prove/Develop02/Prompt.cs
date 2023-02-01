@@ -14,6 +14,7 @@ public class PromptGenerator
     _prompts.Add("What made me laugh today? ");
     _prompts.Add("How did I see the hand of the Lord in your life today? ");
     _prompts.Add("What was the strongest emotion I felt today? Why? ");
+    
     }
     public string GetPrompt()
     {
@@ -22,6 +23,6 @@ public class PromptGenerator
         int num = random.Next(0,_prompts.Count);
         string givenPrompt = _prompts[num];
         return givenPrompt;
-    }
+    }     
     
 }

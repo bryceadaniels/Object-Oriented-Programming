@@ -7,10 +7,16 @@ class Word{
         _cleared = false;
     }
     public void Display(){
+        if (_cleared == true){
+            foreach(char letter in _text){
+                System.Console.Write("_");
+            }
+        }
+        else{
         System.Console.Write(_text);
+        }
     }
     public void Clear(){
-        _text = _text.Replace(_text,"_____");
         _cleared = true;
     }
     public bool GetIfCleared(){

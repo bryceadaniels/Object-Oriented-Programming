@@ -10,6 +10,29 @@ public class Scripture{
             _content.Add(verse);
         }
     }
-    
-    
+    public void Display(){
+        foreach(Verse verse in _content){
+            verse.Display();
+        }
+    }
+    public bool IsAllHidden(){
+        foreach(Verse verse in _content){
+            if (verse.GetIfCleared() == false){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void HideWords(int number){
+        int counter = 0;
+        while (counter < number){
+            Random rand = new Random();
+            int index = rand.Next(_content.Count());
+            Verse verse = new Verse();
+            verse = _content[index];
+            if(verse.HideWord()==true){
+                counter = counter +1;
+            }
+        }
+    }
 }

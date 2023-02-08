@@ -1,6 +1,6 @@
 class Word{
     private string _text;
-    private bool _cleared;
+    private bool _cleared = false;
     public Word(){}
     public Word(string text){
         _text = text;
@@ -20,12 +20,7 @@ class Word{
         _cleared = true;
     }
     public bool GetIfCleared(){
-        if (_cleared == true){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return _cleared;
     }
 
     }

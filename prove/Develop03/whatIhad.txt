@@ -1,0 +1,23 @@
+while (input.ToLower() != "quit"){
+    Random rand = new Random();
+    int number = rand.Next(1,6);
+    scripture.HideWords(number);
+    if (scripture.HideWords(number)==false){
+        scripture.ClearAll();
+        Console.Clear();
+        scripture.Display();
+        System.Console.WriteLine("Press Enter to End");
+        input = Console.ReadLine();
+        break;
+        
+    }
+    if(scripture.IsAllHidden()==true){
+        Console.Clear();
+        scripture.Display();
+        break;
+    }
+    Console.Clear();
+    scripture.Display();
+    System.Console.WriteLine("Press ENTER to continue or type QUIT to end. ");
+    input = Console.ReadLine();
+}

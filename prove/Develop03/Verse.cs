@@ -8,6 +8,7 @@ class Verse{
             Word word = new Word(part);
             _contents.Add(word);
         }
+        _hidden = false;
     }
     public void Display(){
         foreach(Word word in _contents){
@@ -22,9 +23,8 @@ class Verse{
         return index;
     }
     public bool HideWord(){
-        bool hidden = true;
         int counter = 0;
-        while (hidden == true){
+        while (_hidden == false){
             Word word = new Word();
             int index = ChooseRandomIndex();
             word = _contents[index];
@@ -51,9 +51,13 @@ class Verse{
             }
             _hidden = true;
             return true;
-
         }
     }
-    
+    public void ClearAll(){
+        foreach(Word word in _contents){
+            word.Clear();
+            _hidden = true;
+        }
+    }
     
     }

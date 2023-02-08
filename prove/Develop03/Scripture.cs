@@ -1,7 +1,7 @@
 public class Scripture{
     private string _reference;
-    private List<Verse> _content;
-    private bool _hidden;
+    private List<Verse> _content = new List<Verse>();
+    private bool _gone = false;
     public Scripture(){}
     public Scripture(string reference, List<string> content){
         _reference = reference;
@@ -9,8 +9,10 @@ public class Scripture{
             Verse verse = new Verse(part);
             _content.Add(verse);
         }
+        _gone = false;
     }
     public void Display(){
+        System.Console.WriteLine(_reference);
         foreach(Verse verse in _content){
             verse.Display();
         }
@@ -23,8 +25,9 @@ public class Scripture{
         }
         return true;
     }
-    public void HideWords(int number){
+    public bool HideWords(int number){
         int counter = 0;
+        int failCounter = 0;
         while (counter < number){
             Random rand = new Random();
             int index = rand.Next(_content.Count());
@@ -33,6 +36,18 @@ public class Scripture{
             if(verse.HideWord()==true){
                 counter = counter +1;
             }
+            failCounter = failCounter + 1;
+            if(failCounter > 100){
+                _gone = true;
+                return false;
+            }
+        }
+        return true;
+    }
+    public void ClearAll(){
+        foreach(Verse verse in _content){
+            verse.ClearAll();
+            _gone = true;
         }
     }
 }

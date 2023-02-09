@@ -31,12 +31,6 @@ class Program
                     if (scripture.HideWords(number) == true){
                     scripture.HideWords(number);
                     }
-                    else if (scripture.HideWords(2)==true){
-                        scripture.HideWords(2);
-                    }
-                    else if(scripture.HideWords(1)== true){
-                        scripture.HideWords(1);
-                    }
                     Console.Clear();
                     scripture.Display();
                     System.Console.WriteLine("Press ENTER to continue or type QUIT to end. ");

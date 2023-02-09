@@ -1,7 +1,7 @@
 public class Scripture{
     private string _reference;
     private List<Verse> _content = new List<Verse>();
-    private bool _gone = false;
+    private bool _hidden = false;
     public Scripture(){}
     public Scripture(string reference, List<string> content){
         _reference = reference;
@@ -9,7 +9,7 @@ public class Scripture{
             Verse verse = new Verse(part);
             _content.Add(verse);
         }
-        _gone = false;
+        _hidden = false;
     }
     public void Display(){
         System.Console.WriteLine(_reference);
@@ -38,7 +38,7 @@ public class Scripture{
             }
             failCounter = failCounter + 1;
             if(failCounter > 100){
-                _gone = true;
+                _hidden = true;
                 return false;
             }
         }
@@ -47,7 +47,7 @@ public class Scripture{
     public void ClearAll(){
         foreach(Verse verse in _content){
             verse.ClearAll();
-            _gone = true;
+            _hidden = true;
         }
     }
 }

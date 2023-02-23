@@ -41,7 +41,9 @@ public class ReflectionActivity: Activity
     {
         Random rand = new Random();
         int index = rand.Next(0,_prompts.Count());
-        return _prompts[index];
+        string prompt = _prompts[index];
+        _prompts.Remove(prompt);
+        return prompt;
     }
     public void DisplayPrompt()
     {
@@ -63,20 +65,31 @@ public class ReflectionActivity: Activity
     }
     public void RunActivity()
     {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_duration);
-        DateTime currentTime = DateTime.Now;
         DisplayBeginningMessage();
-        PauseWithSpinner(3);
+        DateTime startTime = DateTime.Now;
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+        Console.Clear();
         DisplayPrompt();
         PauseWithSpinner(5);
         while (currentTime < futureTime)
         {
          DisplayQuestion();
-         PauseWithSpinner(5);
+         PauseWithSpinner(3);
          currentTime = DateTime.Now;
+         if (_questions.Count() == 0)
+         {
+            CompileQuestions();
+            if (_prompts.Count() == 0)
+            {
+                CompilePrompts();
+            }
+            Console.Clear();
+            DisplayPrompt();
+            PauseWithSpinner(5);
+         }
         }
+        Console.Clear();
         DisplayEndingMessage();
-        PauseWithSpinner(2);
     }
 }

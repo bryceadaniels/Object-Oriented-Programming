@@ -1,7 +1,7 @@
 public class Activity
 {
-    protected string _name;
-    protected string _description;
+    private string _name;
+    private string _description;
     protected int _duration;
     public Activity(string name,string description,int duration)
     {
@@ -27,6 +27,7 @@ public class Activity
     public void DisplayEndingMessage()
     {
         System.Console.WriteLine($"Great job! You completed the {_name} Activity! See you soon :)");
+        PauseWithSpinner(2);
     }
     public void PauseWithSpinner(int seconds)
     {

@@ -33,6 +33,7 @@ public  class BodyScanActivity : Activity
             System.Console.WriteLine($"Relax and relieve your {part}.");
             PauseWithSpinner(_duration/_bodyParts.Count());
         }
+        Console.Clear();
         DisplayEndingMessage();
     }
 

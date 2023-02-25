@@ -27,7 +27,7 @@ public class Activity
     public void DisplayEndingMessage()
     {
         System.Console.WriteLine($"Great job! You completed the {_name} Activity! See you soon :)");
-        PauseWithSpinner(2);
+        PauseWithSpinner(3);
     }
     public void PauseWithSpinner(int seconds)
     {

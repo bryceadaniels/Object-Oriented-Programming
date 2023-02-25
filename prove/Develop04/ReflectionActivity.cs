@@ -1,7 +1,7 @@
 public class ReflectionActivity: Activity
 {
-    List<string> _prompts = new List<string>();
-    List<string> _questions = new List<string>();
+    private List<string> _prompts = new List<string>();
+    private List<string> _questions = new List<string>();
     public ReflectionActivity(string name, string description, int duration): base(name, description, duration)
     {
         CompileQuestions();

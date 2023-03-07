@@ -14,6 +14,7 @@ public class Admin
     {
         using (StreamWriter file = new StreamWriter(filename))
         {
+            file.WriteLine(CalcTotalPoints(goals));
             foreach (Goal goal in goals)
             {
                 goal.SetStrRep();
@@ -24,19 +25,19 @@ public class Admin
     public void LoadFile(string filename)
     {
         string[] goals = System.IO.File.ReadAllLines(filename);
-        foreach (string goal in goals)
+        for (int i = 0; i< goals.Length; i++)
         {
-            if(goal.Split("==")[0]=="SimpleGoal")
+            if(goals[i].Split("==")[0]=="SimpleGoal")
             {
-                SimpleGoal simpleGoal = new SimpleGoal(goal.Split("==")[1]);
+                SimpleGoal simpleGoal = new SimpleGoal(goals[i].Split("==")[1]);
             }
-            else if(goal.Split("==")[0]=="EternalGoal")
+            else if(goals[i].Split("==")[0]=="EternalGoal")
             {
-                EternalGoal eternalGoal = new EternalGoal(goal.Split("==")[1]);
+                EternalGoal eternalGoal = new EternalGoal(goals[i].Split("==")[1]);
             }
-            else if(goal.Split("==")[0]=="ChecklistGoal")
+            else if(goals[i].Split("==")[0]=="ChecklistGoal")
             {
-                ChecklistGoal checklistGoal = new ChecklistGoal(goal.Split("==")[1]);
+                ChecklistGoal checklistGoal = new ChecklistGoal(goals[i].Split("==")[1]);
             }
             else
             {

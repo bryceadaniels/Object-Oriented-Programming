@@ -49,7 +49,7 @@ public class SimpleGoal : Goal
         {
             comp = 0;
         }
-        string strRep = $"{name}|{desc}|{points}|{comp}";
+        string strRep = $"SimpleGoal=={name}|{desc}|{points}|{comp}";
         _strRep= strRep;
     }
     public override int ReportTotal()

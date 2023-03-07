@@ -3,7 +3,7 @@ public class ChecklistGoal : Goal
     private int _bonusPoints;
     private int _numberToComplete;
     private int _numberCompleted;
-    public ChecklistGoal(string name,string desc,int points, int bonus,int numToComp, int numDone): base(name,desc,points)
+    public ChecklistGoal(string name,string desc,int points, int bonus,int numToComp, int numDone=0): base(name,desc,points)
     {
         _bonusPoints = bonus;
         _numberCompleted = numDone;
@@ -38,7 +38,7 @@ public class ChecklistGoal : Goal
         }
         else
         {
-            System.Console.WriteLine($"[ ] {name} ({desc}) {_numberCompleted}/{_numberToComplete}");
+            System.Console.WriteLine($"[ ] {name} ({desc}) Completed: {_numberCompleted}/{_numberToComplete}");
         }
     }
     public override void RecordEvent()
@@ -58,7 +58,7 @@ public class ChecklistGoal : Goal
         string name = GetName();
         string desc = GetDesc();
         int points = GetPoints();
-        string strRep = $"{name}|{desc}|{points}|{_bonusPoints}|{_numberToComplete}|{_numberCompleted}";
+        string strRep = $"ChecklistGoal=={name}|{desc}|{points}|{_bonusPoints}|{_numberToComplete}|{_numberCompleted}";
         _strRep = strRep;        
     }
     public override int ReportTotal()

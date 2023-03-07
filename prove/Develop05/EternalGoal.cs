@@ -34,7 +34,7 @@ public class EternalGoal : Goal
         string name = GetName();
         string desc = GetDesc();
         int points = GetPoints();
-        string strRep = $"{name}|{desc}|{points}|{_numCompleted}";
+        string strRep = $"EternalGoal=={name}|{desc}|{points}|{_numCompleted}";
         _strRep = strRep;
     }
     public override int ReportTotal()

@@ -4,26 +4,111 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
-    }
-    public int CalcTotalPoints(List<Goal> goals)
-    {
-        int totalPoints = 0;
-        foreach(Goal goal in goals)
+        Admin admin = new Admin();
+        List<Goal> goalList = new List<Goal>();
+        int choice=0;
+        while (choice != 6)
         {
-            totalPoints+=goal.ReportTotal();
-        }
-        return totalPoints;
-    }
-    public void SaveToFile(string filename, List<Goal> goals)
-    {
-        using (StreamWriter file = new StreamWriter(filename))
-        {
-            foreach (Goal goal in goals)
+            System.Console.WriteLine($"You have {admin.CalcTotalPoints(goalList)} points. ");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Menu Options:");
+            System.Console.WriteLine("  1. Create New Goal");
+            System.Console.WriteLine("  2. List Goals");
+            System.Console.WriteLine("  3. Save Goals");
+            System.Console.WriteLine("  4. Load Goals");
+            System.Console.WriteLine("  5. Record Event");
+            System.Console.WriteLine("  6. Quit");
+            System.Console.Write("Select a choice from the menu: ");
+            choice = int.Parse(System.Console.ReadLine());
+            switch (choice)
             {
-                goal.SetStrRep();
-                System.Console.WriteLine(goal.GetStrRep());
+                case 1:
+                    System.Console.WriteLine("The types of goals are: ");
+                    System.Console.WriteLine("1. Simple");
+                    System.Console.WriteLine("2. Eternal");
+                    System.Console.WriteLine("3. Checklist");
+                    System.Console.WriteLine("What type of goal would you like to create?");
+                    int goalType = int.Parse(Console.ReadLine());
+                    switch (goalType)
+                    {
+                        case 1:
+                            System.Console.Write("What is the name of your goal? ");
+                            string simpName = Console.ReadLine();
+                            System.Console.Write("What is a short description of it? ");
+                            string simpDesc = Console.ReadLine();
+                            System.Console.Write("How many points do you associate with this goal? ");
+                            int simpPoints = int.Parse(Console.ReadLine());
+                            SimpleGoal simpleGoal = new SimpleGoal(simpName,simpDesc,simpPoints);
+                            goalList.Append(simpleGoal);
+                            break;
+                        case 2:
+                            System.Console.Write("What is the name of your goal? ");
+                            string eterName = Console.ReadLine();
+                            System.Console.Write("What is a short description of it? ");
+                            string eterDesc = Console.ReadLine();
+                            System.Console.Write("How many points do you associate with this goal? ");
+                            int eterPoints = int.Parse(Console.ReadLine());
+                            EternalGoal eternalGoal = new EternalGoal(eterName,eterDesc,eterPoints);
+                            goalList.Append(eternalGoal);
+                            break;
+                        case 3:
+                            System.Console.Write("What is the name of your goal? ");
+                            string chName = Console.ReadLine();
+                            System.Console.Write("What is a short description of it? ");
+                            string chDesc = Console.ReadLine();
+                            System.Console.Write("How many points do you associate with this goal? ");
+                            int chPoints = int.Parse(Console.ReadLine());
+                            System.Console.Write("How many times must you perform this goal to complete it? ");
+                            int chNumTotal = int.Parse(Console.ReadLine());
+                            System.Console.Write("How many points will you be awarded upon completion of the goal? ");
+                            int chBonus = int.Parse(Console.ReadLine());
+                            ChecklistGoal checklistGoal = new ChecklistGoal(chName,chDesc,chPoints,chBonus,chNumTotal);
+                            goalList.Append(checklistGoal);
+                            break;
+                    }
+                    break;
+
+                case 2:
+                    System.Console.WriteLine("The goals are: ");
+                    admin.ListGoals(goalList);
+                    break;
+                
+                case 3:
+                    System.Console.Write("What file would you like to save this as? ");
+                    string filename = Console.ReadLine();
+                    admin.SaveToFile(filename,goalList);
+                    break;
+                
+                case 4:
+                    System.Console.Write("What file would you like to load? ");
+                    string fileName = Console.ReadLine();
+                    admin.LoadFile(fileName);
+                    break;
+                
+                case 5:
+                    System.Console.WriteLine("The goals are: ");
+                    int i = 1;
+                    List<Goal> uncompleted = new List<Goal>();
+                    foreach(Goal goal in goalList)
+                    {
+                        if (goal.IsComplete()==false)
+                        {
+                            uncompleted.Append(goal);
+                            System.Console.WriteLine($"{i+1}. {goal.GetName()} {goal.GetDesc()}");
+                        }
+                    }
+                    int recChoice;
+                    System.Console.Write("Which goal did you accomplish? ");
+                    recChoice = int.Parse(Console.ReadLine())-1;
+                    uncompleted[recChoice].RecordEvent();
+                    System.Console.WriteLine($"Congrats, you earned {uncompleted[recChoice].GetPoints()} points. ");
+                    break;
+
+                case 6:
+                    System.Console.WriteLine("Have a good day!");
+                    break;
             }
         }
     }
+       
 }

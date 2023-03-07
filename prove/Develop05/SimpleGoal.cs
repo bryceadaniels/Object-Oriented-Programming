@@ -54,6 +54,13 @@ public class SimpleGoal : Goal
     }
     public override int ReportTotal()
     {
-        return GetPoints();
+        if (IsComplete()==true)
+        {
+            return GetPoints();
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

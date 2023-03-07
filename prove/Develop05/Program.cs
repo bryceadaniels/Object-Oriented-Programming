@@ -20,6 +20,7 @@ class Program
             System.Console.WriteLine("  6. Quit");
             System.Console.Write("Select a choice from the menu: ");
             choice = int.Parse(System.Console.ReadLine());
+            Console.Clear();
             switch (choice)
             {
                 case 1:
@@ -27,8 +28,9 @@ class Program
                     System.Console.WriteLine("1. Simple");
                     System.Console.WriteLine("2. Eternal");
                     System.Console.WriteLine("3. Checklist");
-                    System.Console.WriteLine("What type of goal would you like to create?");
+                    System.Console.Write("What type of goal would you like to create? ");
                     int goalType = int.Parse(Console.ReadLine());
+                    Console.Clear();
                     switch (goalType)
                     {
                         case 1:
@@ -39,7 +41,8 @@ class Program
                             System.Console.Write("How many points do you associate with this goal? ");
                             int simpPoints = int.Parse(Console.ReadLine());
                             SimpleGoal simpleGoal = new SimpleGoal(simpName,simpDesc,simpPoints);
-                            goalList.Append(simpleGoal);
+                            goalList.Add(simpleGoal);
+                            Console.Clear();
                             break;
                         case 2:
                             System.Console.Write("What is the name of your goal? ");
@@ -49,7 +52,8 @@ class Program
                             System.Console.Write("How many points do you associate with this goal? ");
                             int eterPoints = int.Parse(Console.ReadLine());
                             EternalGoal eternalGoal = new EternalGoal(eterName,eterDesc,eterPoints);
-                            goalList.Append(eternalGoal);
+                            goalList.Add(eternalGoal);
+                            Console.Clear();
                             break;
                         case 3:
                             System.Console.Write("What is the name of your goal? ");
@@ -63,7 +67,8 @@ class Program
                             System.Console.Write("How many points will you be awarded upon completion of the goal? ");
                             int chBonus = int.Parse(Console.ReadLine());
                             ChecklistGoal checklistGoal = new ChecklistGoal(chName,chDesc,chPoints,chBonus,chNumTotal);
-                            goalList.Append(checklistGoal);
+                            goalList.Add(checklistGoal);
+                            Console.Clear();
                             break;
                     }
                     break;
@@ -71,18 +76,22 @@ class Program
                 case 2:
                     System.Console.WriteLine("The goals are: ");
                     admin.ListGoals(goalList);
+
+                    System.Console.WriteLine("\n \n");
                     break;
                 
                 case 3:
                     System.Console.Write("What file would you like to save this as? ");
                     string filename = Console.ReadLine();
                     admin.SaveToFile(filename,goalList);
+                    Console.Clear();
                     break;
                 
                 case 4:
                     System.Console.Write("What file would you like to load? ");
                     string fileName = Console.ReadLine();
                     admin.LoadFile(fileName);
+                    Console.Clear();
                     break;
                 
                 case 5:
@@ -93,8 +102,9 @@ class Program
                     {
                         if (goal.IsComplete()==false)
                         {
-                            uncompleted.Append(goal);
-                            System.Console.WriteLine($"{i+1}. {goal.GetName()} {goal.GetDesc()}");
+                            uncompleted.Add(goal);
+                            System.Console.WriteLine($" {i}. {goal.GetName()} {goal.GetDesc()}");
+                            i++;
                         }
                     }
                     int recChoice;
@@ -102,13 +112,14 @@ class Program
                     recChoice = int.Parse(Console.ReadLine())-1;
                     uncompleted[recChoice].RecordEvent();
                     System.Console.WriteLine($"Congrats, you earned {uncompleted[recChoice].GetPoints()} points. ");
+                    System.Console.WriteLine("\n \n");
                     break;
 
                 case 6:
                     System.Console.WriteLine("Have a good day!");
                     break;
             }
-        }
+        } 
     }
        
 }

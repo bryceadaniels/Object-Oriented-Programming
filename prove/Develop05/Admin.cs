@@ -17,7 +17,7 @@ public class Admin
             foreach (Goal goal in goals)
             {
                 goal.SetStrRep();
-                System.Console.WriteLine(goal.GetStrRep());
+                file.WriteLine(goal.GetStrRep());
             }
         }
     }

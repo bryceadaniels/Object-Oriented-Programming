@@ -22,7 +22,7 @@ public class Admin
             }
         }
     }
-    public void LoadFile(string filename)
+    public void LoadFile(string filename, List<Goal> goalList)
     {
         string[] goals = System.IO.File.ReadAllLines(filename);
         for (int i = 0; i< goals.Length; i++)
@@ -30,14 +30,17 @@ public class Admin
             if(goals[i].Split("==")[0]=="SimpleGoal")
             {
                 SimpleGoal simpleGoal = new SimpleGoal(goals[i].Split("==")[1]);
+                goalList.Add(simpleGoal);
             }
             else if(goals[i].Split("==")[0]=="EternalGoal")
             {
                 EternalGoal eternalGoal = new EternalGoal(goals[i].Split("==")[1]);
+                goalList.Add(eternalGoal);
             }
             else if(goals[i].Split("==")[0]=="ChecklistGoal")
             {
                 ChecklistGoal checklistGoal = new ChecklistGoal(goals[i].Split("==")[1]);
+                goalList.Add(checklistGoal);
             }
             else
             {

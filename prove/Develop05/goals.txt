@@ -1,3 +1,4 @@
-SimpleGoal==Finish Code|Make it done|100|0
-EternalGoal==Bed on time|By 10:30|20|0
-ChecklistGoal==Tutor|this week|20|250|3|0
+120
+SimpleGoal==Finish Code|Get er done|100|1
+EternalGoal==Bed on Time|by 10:30|15|1
+ChecklistGoal==Attend Class|Be there|5|10|3|1

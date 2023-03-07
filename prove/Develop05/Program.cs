@@ -90,7 +90,7 @@ class Program
                 case 4:
                     System.Console.Write("What file would you like to load? ");
                     string fileName = Console.ReadLine();
-                    admin.LoadFile(fileName);
+                    admin.LoadFile(fileName,goalList);
                     Console.Clear();
                     break;
                 

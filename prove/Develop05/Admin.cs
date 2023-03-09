@@ -42,6 +42,11 @@ public class Admin
                 ChecklistGoal checklistGoal = new ChecklistGoal(goals[i].Split("==")[1]);
                 goalList.Add(checklistGoal);
             }
+            else if(goals[i].Split("==")[0]=="NegativeGoal")
+                {
+                    NegativeGoal negativeGoal = new NegativeGoal(goals[i].Split("==")[1]);
+                    goalList.Add(negativeGoal);
+                }
             else
             {
                 System.Console.WriteLine("There is an error somewhere.");

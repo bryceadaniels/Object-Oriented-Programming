@@ -70,6 +70,17 @@ class Program
                             goalList.Add(checklistGoal);
                             Console.Clear();
                             break;
+                        case 4:
+                            System.Console.Write("What is the name of your goal? ");
+                            string negName = Console.ReadLine();
+                            System.Console.Write("What is a short description of it? ");
+                            string negDesc = Console.ReadLine();
+                            System.Console.Write("How many points do you associate with this goal? ");
+                            int negPoints = int.Parse(Console.ReadLine());
+                            NegativeGoal negGoal = new NegativeGoal(negName,negDesc,negPoints);
+                            goalList.Add(negGoal);
+                            Console.Clear();
+                            break;
                     }
                     break;
 

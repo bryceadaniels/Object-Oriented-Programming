@@ -28,6 +28,7 @@ class Program
                     System.Console.WriteLine("1. Simple");
                     System.Console.WriteLine("2. Eternal");
                     System.Console.WriteLine("3. Checklist");
+                    System.Console.WriteLine("4. Negative");
                     System.Console.Write("What type of goal would you like to create? ");
                     int goalType = int.Parse(Console.ReadLine());
                     Console.Clear();
@@ -114,7 +115,7 @@ class Program
                         if (goal.IsComplete()==false)
                         {
                             uncompleted.Add(goal);
-                            System.Console.WriteLine($" {i}. {goal.GetName()} {goal.GetDesc()}");
+                            System.Console.WriteLine($" {i}. {goal.GetName()} ({goal.GetDesc()})");
                             i++;
                         }
                     }

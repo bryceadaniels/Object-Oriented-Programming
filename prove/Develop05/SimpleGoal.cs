@@ -1,4 +1,4 @@
-public class SimpleGoal : Goal
+class SimpleGoal : Goal
 {
     public SimpleGoal(string name, string desc, int points): base(name,desc,points){}
     public SimpleGoal():base(){}

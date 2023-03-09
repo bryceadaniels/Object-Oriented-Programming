@@ -1,4 +1,4 @@
-public class Admin
+class Admin
 {
     public Admin(){}
     public int CalcTotalPoints(List<Goal> goals)

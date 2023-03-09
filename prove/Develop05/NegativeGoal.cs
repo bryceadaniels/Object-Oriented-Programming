@@ -1,4 +1,4 @@
-public class NegativeGoal : Goal
+class NegativeGoal : Goal
 {
     private int _numCompleted;
     public NegativeGoal(string name, string desc,int points):base(name,desc,points)

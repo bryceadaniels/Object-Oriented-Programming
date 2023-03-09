@@ -1,4 +1,4 @@
-public class ChecklistGoal : Goal
+class ChecklistGoal : Goal
 {
     private int _bonusPoints;
     private int _numberToComplete;

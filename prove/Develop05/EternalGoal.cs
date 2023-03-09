@@ -1,4 +1,4 @@
-public class EternalGoal : Goal
+class EternalGoal : Goal
 {
     private int _numCompleted;
     public EternalGoal(string name, string desc,int points):base(name,desc,points)

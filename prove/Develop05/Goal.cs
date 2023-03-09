@@ -1,4 +1,4 @@
-public abstract class Goal
+abstract class Goal
 {
     private string _name;
     private string _description;

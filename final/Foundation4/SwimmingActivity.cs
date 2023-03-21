@@ -7,7 +7,7 @@ class SwimmingActivity:Activity
     }
     public override float GetDistance()
     {
-        return _numberOfLaps*50/1000;
+        return _numberOfLaps*50f/1000f;
     }
     public override float GetSpeed()
     {
